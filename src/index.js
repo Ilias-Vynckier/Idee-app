@@ -42,22 +42,46 @@ function containter() {
 
 
 
+
 document.body.appendChild(navbar());
 document.body.appendChild(containter());
 
 function div() {
   const div = document.createElement("div");
-  div.id = "YEdiv";
+  div.id = "div";
+  div.className = "card"
 
   return div
 }
 
-document.getElementById("container").append(div());
+function card() {
+  const card = div();
+
+  card.className="card";
+  card.id="card";
+
+  return card;
+}
+
+function cardbody() {
+  const cardbody = div();
+
+  cardbody.className="card-body";
+  cardbody.id="YEdiv"
+
+  return cardbody;
+}
+
+
+document.getElementById("container").append(card());
+document.getElementById("card").append(cardbody())
+
+
 
 function button() {
   const button = document.createElement("button");
-  button.id="YE";
-  button.innerHTML="YE";
+  button.id = "YE";
+  button.innerHTML = "YE";
 
   return button;
 }
