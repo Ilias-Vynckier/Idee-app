@@ -36,37 +36,30 @@ function containter() {
   const containter = document.createElement("div");
   containter.className = "container";
   containter.id = "container";
-
-
-  containter.innerHTML = "data.quote";
-
   return containter;
 }
+
+
 
 
 document.body.appendChild(navbar());
 document.body.appendChild(containter());
 
+function div() {
+  const div = document.createElement("div");
+  div.id = "YEdiv";
 
-function component() {
-
-  Notification.requestPermission(); //// notificatinos toestaan
-
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
-
-  btn.innerHTML = "Click me and check the console!";
-  btn.className = "btn js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect";
-  btn.type = "button";
-
-  element.appendChild(btn);
-
-  return element;
+  return div
 }
 
-document.getElementById("container").appendChild(component());
-document.body.appendChild(component());
+document.getElementById("container").append(div());
+
+function button() {
+  const button = document.createElement("button");
+  button.id="YE";
+  button.innerHTML="YE";
+
+  return button;
+}
+
+document.getElementById("container").append(button());

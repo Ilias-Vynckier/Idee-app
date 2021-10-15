@@ -1,1 +1,1 @@
-fetch("https://api.kanye.rest/").then((e=>e.json())).then((e=>function(e){document.getElementById("container").innerHTML=e.quote}(e)));
+(()=>{function t(){fetch("https://api.kanye.rest/").then((t=>t.json())).then((t=>function(t){document.getElementById("YEdiv").innerHTML=t.quote}(t)))}t(),document.addEventListener("click",(function(n){"YE"==n.target.id&&t()}))})();
