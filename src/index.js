@@ -4,6 +4,7 @@ import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //const port = process.env.PORT || 3000
 
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
@@ -16,6 +17,7 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
 
 function navbar() {
   const nav = document.createElement("nav");
@@ -35,9 +37,9 @@ function containter() {
   containter.className = "container";
   containter.id = "container";
 
-  containter.innerHTML = Data();
 
-  console.log("feest",Data())
+  containter.innerHTML = "data.quote";
+
   return containter;
 }
 
@@ -67,14 +69,4 @@ function component() {
 }
 
 document.getElementById("container").appendChild(component());
-//document.body.appendChild(component());
-
-
-function Data(data) {
-  console.log("dink",data)
-  return data;
-}
-
-fetch('https://opentdb.com/api.php?amount=1')
-.then(response => response.json())
-.then(data =>Data(data));
+document.body.appendChild(component());

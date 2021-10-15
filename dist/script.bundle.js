@@ -1,0 +1,1 @@
+fetch("https://api.kanye.rest/").then((e=>e.json())).then((e=>function(e){document.getElementById("container").innerHTML=e.quote}(e)));

@@ -5,6 +5,8 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
     entry: {
+        script:'./src/push.js',
+        script: './src/script.js',
         index: './src/index.js',
       },
       plugins: [
