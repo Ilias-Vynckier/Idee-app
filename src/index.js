@@ -1,7 +1,8 @@
 import _ from "lodash";
 import "./style.css";
-//import 'bootstrap';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 //const port = process.env.PORT || 3000
 
 if ("serviceWorker" in navigator) {
@@ -78,7 +79,7 @@ function cardbody() {
 
   cardbody.className = "card-body text-center";
   cardbody.id = "YEdiv"
-  cardbody.innerHTML="Your offline. Please connect to the web"
+  cardbody.innerHTML = "Your offline. Please connect to the web"
 
   return cardbody;
 }
@@ -88,46 +89,116 @@ document.getElementById("row").append(col());
 document.getElementById("col").append(card());
 document.getElementById("card").append(cardbody());
 
-
-
 function button() {
   const button = document.createElement("button");
-  button.id = "YE";
-  button.innerHTML = "YE";
   button.className = "btn btn-primary btn-lg";
 
   return button;
 }
 
-document.getElementById("col").append(button());
+
+function YeButton() {
+  const YeButton = button();
+  YeButton.id = "YE";
+  YeButton.innerHTML = "YE";
+
+  return YeButton;
+}
+
+document.getElementById("col").append(YeButton());
+
+function sidebtn() {
+  const side = button();
+
+  side.id = "side";
+  side.type = "button";
+  side.className = "position-fixed bottom-0 end-0 btn btn-primary"
+
+  side.dataset.bsToggle = "offcanvas";
+  side.dataset.bsTarget = "#offcanvasTop";
+  side.setAttribute("aria-controls", "offcanvasTop");
+
+  return side;
+}
+
+function gear() {
+  const gear = document.createElement("i");
+  gear.className = "bi bi-gear-wide";
+
+  return gear;
+}
+
+document.getElementById("col").append(sidebtn());
+document.getElementById("side").append(gear());
 
 
-/*
-*
-*  Push Notifications codelab
-*  Copyright 2015 Google Inc. All rights reserved.
-*
-*  Licensed under the Apache License, Version 2.0 (the "License");
-*  you may not use this file except in compliance with the License.
-*  You may obtain a copy of the License at
-*
-*      https://www.apache.org/licenses/LICENSE-2.0
-*
-*  Unless required by applicable law or agreed to in writing, software
-*  distributed under the License is distributed on an "AS IS" BASIS,
-*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*  See the License for the specific language governing permissions and
-*  limitations under the License
-*
-*/
 
-/* eslint-env browser, es6 */
+function offcanvas() {
+  const ofv = div();
+  ofv.className = "offcanvas offcanvas-start";
+  ofv.id = "offcanvasTop";
+  ofv.tabIndex = -1;
+  ofv.setAttribute("aria-labelledby", "offcanvasTopLabel");
+  return ofv;
+}
+
+function offcnvsHeader() {
+  const ofvh = div();
+  ofvh.className = "offcanvas-header";
+  ofvh.id = "offcanvas-header";
+  return ofvh;
+}
+
+function offTitle() {
+  const title = document.createElement("h5");
+  title.className = "offcanvas-title";
+  title.id = "offcanvasLabel";
+  title.innerHTML = "Push notifications";
+  return title;
+}
+
+function offcnvsBody() {
+  const ofvb = div();
+  ofvb.className = "offcanvas-body";
+  ofvb.id = "offcanvas-body";
+  return ofvb;
+}
+
+function offcnvsclose() {
+  const ofvcb = button();
+  ofvcb.className = "btn-close text-reset";
+  ofvcb.dataset.bsDismiss = "offcanvas";
+  ofvcb.type = "button";
+  ofvcb.setariaLabel = "Close";
+  ofvcb.setAttribute("aria-label", "Close");
+
+  return ofvcb;
+}
+
+function pushbtn() {
+  const push = button();
+
+  push.id = "push";
+  push.innerHTML = "push";
+  push.type = "button";
+
+  return push;
+}
+
+document.body.append(offcanvas());
+document.getElementById("offcanvasTop").append(offcnvsHeader());
+document.getElementById("offcanvasTop").append(offcnvsBody());
+document.getElementById("offcanvas-header").append(offTitle());
+document.getElementById("offcanvas-header").append(offcnvsclose());
+document.getElementById("offcanvas-body").append(pushbtn());
+
+////////////////////////////////// PUSH
 
 'use strict';
 
 const applicationServerPublicKey = 'BFO7xLiHzuFDLgO49TwPDA5IP9DMiAoa3T_zBkyMpN_wt5RbHBE6jGUvG0zfqSHOSxI7I5SvtAlxpzEHiyC27Kg';
 
-const pushButton = document.querySelector('#YE');
+const pushButton = document.querySelector('#push');
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -180,50 +251,52 @@ function updateBtn() {
   }
 }*/
 
+// TODO : settings pannel maken voor push notification
+
 function subscribeUser() {
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: applicationServerKey
   })
-  .then(function(subscription) {
-    console.log('User is subscribed.');
-    console.log(subscription);
+    .then(function (subscription) {
+      console.log('User is subscribed.');
+      console.log(subscription);
 
-    //updateSubscriptionOnServer(subscription);
+      //updateSubscriptionOnServer(subscription);
 
-    isSubscribed = true;
+      isSubscribed = true;
 
-    updateBtn();
-  })
-  .catch(function(err) {
-    console.log('Failed to subscribe the user: ', err);
-    updateBtn();
-  });
+      updateBtn();
+    })
+    .catch(function (err) {
+      console.log('Failed to subscribe the user: ', err);
+      updateBtn();
+    });
 }
 
 function unsubscribeUser() {
   swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    if (subscription) {
-      return subscription.unsubscribe();
-    }
-  })
-  .catch(function(error) {
-    console.log('Error unsubscribing', error);
-  })
-  .then(function() {
-    //updateSubscriptionOnServer(null);
+    .then(function (subscription) {
+      if (subscription) {
+        return subscription.unsubscribe();
+      }
+    })
+    .catch(function (error) {
+      console.log('Error unsubscribing', error);
+    })
+    .then(function () {
+      //updateSubscriptionOnServer(null);
 
-    console.log('User is unsubscribed.');
-    isSubscribed = false;
+      console.log('User is unsubscribed.');
+      isSubscribed = false;
 
-    updateBtn();
-  });
+      updateBtn();
+    });
 }
 
 function initializeUI() {
-  pushButton.addEventListener('click', function() {
+  pushButton.addEventListener('click', function () {
     pushButton.disabled = true;
     if (isSubscribed) {
       unsubscribeUser();
@@ -234,37 +307,35 @@ function initializeUI() {
 
   // Set the initial subscription value
   swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
+    .then(function (subscription) {
+      isSubscribed = !(subscription === null);
 
-    //updateSubscriptionOnServer(subscription);
+      //updateSubscriptionOnServer(subscription);
 
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
-    }
+      if (isSubscribed) {
+        console.log('User IS subscribed.');
+      } else {
+        console.log('User is NOT subscribed.');
+      }
 
-    updateBtn();
-  });
+      updateBtn();
+    });
 }
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.log('Service Worker and Push is supported');
 
   navigator.serviceWorker.register('sw.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
+    .then(function (swReg) {
+      console.log('Service Worker is registered', swReg);
 
-    swRegistration = swReg;
-    initializeUI();
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
-  });
+      swRegistration = swReg;
+      initializeUI();
+    })
+    .catch(function (error) {
+      console.error('Service Worker Error', error);
+    });
 } else {
   console.warn('Push messaging is not supported');
   pushButton.textContent = 'Push Not Supported';
 }
-
-  

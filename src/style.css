@@ -1,5 +1,12 @@
-button{
+
+
+#YE{
     width: 100%;
     margin: auto;
+}
+
+.side{
+    width: fit-content;
+    z-index: 11;
 }
 

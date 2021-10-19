@@ -35,7 +35,7 @@ function YEfetch() {
 }
 
 function containter(data) {
-    document.getElementById("YEdiv").innerHTML = data.quote;
+    document.getElementById("YEdiv").innerHTML = data.quote + "<br><cite>-Kanye West</cite>";
 }
 
 document.addEventListener('click', function (event) {
@@ -46,8 +46,8 @@ document.addEventListener('click', function (event) {
 
 window.addEventListener('offline', (event) => {
     console.log("The network connection has been lost.");
-  
-    let data = {"quote":"Your offline. Please connect to the web"}
+
+    let data = { "quote": "Your offline. Please connect to the web" }
     containter(data);
 });
 
