@@ -4,58 +4,58 @@ import { precacheAndRoute} from 'workbox-precaching';
 precacheAndRoute(self.__WB_MANIFEST);
 
 
-const applicationServerPublicKey = 'BPk-yV49F5y-J59t3SNzK0fyGE6w0xxXbKVzNOHFDR9i4rpo46gs_qX6k1PfjEQp4qGoy--fUGCGiBbDlEHvDAY';
+const applicationServerPublicKey = 'BFO7xLiHzuFDLgO49TwPDA5IP9DMiAoa3T_zBkyMpN_wt5RbHBE6jGUvG0zfqSHOSxI7I5SvtAlxpzEHiyC27Kg';
 
 function urlB64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding)
-      .replace(/\-/g, '+')
-      .replace(/_/g, '/');
-  
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-  
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
   }
-  
-  self.addEventListener('push', function(event) {
-    console.log('[Service Worker] Push Received.');
-    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
-  
-    const title = 'idee push';
-    const options = {
-      body: 'Yay it works.',
-      icon: 'images/icon.png',
-      badge: 'images/badge.png'
-    };
-  
-    event.waitUntil(self.registration.showNotification(title, options));
-  });
-  
-  self.addEventListener('notificationclick', function(event) {
-    console.log('[Service Worker] Notification click Received.');
-  
-    event.notification.close();
-  
-    event.waitUntil(
-      clients.openWindow('https://developers.google.com/web/')
-    );
-  });
-  
-  self.addEventListener('pushsubscriptionchange', function(event) {
-    console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
-    const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
-    event.waitUntil(
-      self.registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: applicationServerKey
-      })
-      .then(function(newSubscription) {
-        // TODO: Send to application server
-        console.log('[Service Worker] New subscription: ', newSubscription);
-      })
-    );
-  });
+  return outputArray;
+}
+
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'Push Codelab';
+  const options = {
+    body: 'Yay it works.',
+    icon: 'images/icon.png',
+    badge: 'images/badge.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
+
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('https://developers.google.com/web/')
+  );
+});
+
+self.addEventListener('pushsubscriptionchange', function(event) {
+  console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  event.waitUntil(
+    self.registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: applicationServerKey
+    })
+    .then(function(newSubscription) {
+      // TODO: Send to application server
+      console.log('[Service Worker] New subscription: ', newSubscription);
+    })
+  );
+});

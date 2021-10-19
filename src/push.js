@@ -24,7 +24,7 @@
 const applicationServerPublicKey = 'pve6LQ79BFRgrmh4CV9MWYfDl3xLu-C3SIQcVXTYaQg' +
   'BPk-yV49F5y-J59t3SNzK0fyGE6w0xxXbKVzNOHFDR9i4rpo46gs_qX6k1PfjEQp4qGoy--fUGCGiBbDlEHvDAY';
 
-  const pushButton = document.querySelector('.js-push-btn');
+  const pushButton = document.querySelector('#YE');
 
   let isSubscribed = false;
   let swRegistration = null;
@@ -86,7 +86,7 @@ const applicationServerPublicKey = 'pve6LQ79BFRgrmh4CV9MWYfDl3xLu-C3SIQcVXTYaQg'
       console.log('User is subscribed.');
   
       updateSubscriptionOnServer(subscription);
-  
+      console.log("test"+subscription);
       isSubscribed = true;
   
       updateBtn();
