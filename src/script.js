@@ -29,13 +29,13 @@ window.addEventListener('load', function () {
 });
 
 function YEfetch() {
-    fetch('https://api.kanye.rest/')
+    fetch('https://ideaapi.azurewebsites.net/')
         .then(response => response.json())
         .then(data => containter(data));
 }
 
 function containter(data) {
-    document.getElementById("YEdiv").innerHTML = data.quote + "<br><cite>-Kanye West</cite>";
+    document.getElementById("YEdiv").innerHTML = data+ "<br><cite>-Kanye West</cite>";
 }
 
 document.addEventListener('click', function (event) {
