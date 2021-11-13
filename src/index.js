@@ -100,7 +100,7 @@ function button() {
 function YeButton() {
   const YeButton = button();
   YeButton.id = "YE";
-  YeButton.innerHTML = "YE";
+  YeButton.innerHTML = "IDEA";
 
   return YeButton;
 }
@@ -185,12 +185,22 @@ function pushbtn() {
   return push;
 }
 
+function Name() {
+  const name= div();
+
+  name.className = "position-fixed bottom-0 start-0"
+  name.innerHTML = "Made by Ilias Vynckier"
+
+  return name;
+}
+
 document.body.append(offcanvas());
 document.getElementById("offcanvasTop").append(offcnvsHeader());
 document.getElementById("offcanvasTop").append(offcnvsBody());
 document.getElementById("offcanvas-header").append(offTitle());
 document.getElementById("offcanvas-header").append(offcnvsclose());
 document.getElementById("offcanvas-body").append(pushbtn());
+document.getElementById("offcanvas-body").append(Name());
 
 ////////////////////////////////// PUSH
 

@@ -13,7 +13,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Progressive Web Application',
+      title: 'Idea App',
+      //favicon:'./src/idea.png',
     }),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/sw.js',
@@ -21,21 +22,21 @@ module.exports = {
     new WebpackPwaManifest({
       name: 'Idee app',
       short_name: 'Idee',
-      description: 'My awesome Progressive Web App!',
+      description: "An app for when you don't idea what to make",
       background_color: '#ffffff',
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       publicPath: './',
       icons: [
         {
-          src: path.resolve('./src/chicken.png'),
+          src: path.resolve('./src/idea.png'),
           sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
         },
         {
-          src: path.resolve('./src/chicken.png'),
+          src: path.resolve('./src/idea.png'),
           size: '1024x1024' // you can also use the specifications pattern
         },
         {
-          src: path.resolve('./src/chicken.png'),
+          src: path.resolve('./src/idea.png'),
           size: '1024x1024',
           purpose: 'maskable'
         }

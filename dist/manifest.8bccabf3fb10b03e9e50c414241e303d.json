@@ -1,43 +1,43 @@
 {
   "icons": [
     {
-      "src": "./icon_1024x1024.54d5888d9fbffa202e67a2cfea6f4afb.png",
+      "src": "./icon_1024x1024.68ec1084116af784d5c74599f4013822.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./icon_1024x1024.54d5888d9fbffa202e67a2cfea6f4afb.png",
+      "src": "./icon_1024x1024.68ec1084116af784d5c74599f4013822.png",
       "sizes": "1024x1024",
       "type": "image/png"
     },
     {
-      "src": "./icon_512x512.a169a33e558a4108a0aeecf5fd11b4c5.png",
+      "src": "./icon_512x512.ac52e672cb51561867ae527e66d5473a.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "./icon_384x384.c418b888f91febfac2bd45c387b1a1c0.png",
+      "src": "./icon_384x384.09d65f07d30098d80b3194bdb1bd8a99.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "./icon_256x256.bde49e5d6b8fdcc002f2db9e8920b77c.png",
+      "src": "./icon_256x256.ef1eeeb00d393ff1a4014b6857452116.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "./icon_192x192.81493f8c3bef938073a39807a0e788b0.png",
+      "src": "./icon_192x192.c72d6b5eca6d8b41043741c2bda1f136.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./icon_128x128.2a03c4610ee5aab7cf0d18ac43ecc3e0.png",
+      "src": "./icon_128x128.b8dd99aa4766b6af0b81bf3ed89dad20.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "./icon_96x96.e70ad0a44507a230f873e180f0b8356b.png",
+      "src": "./icon_96x96.a80bb955b8750861889c6f32578c1669.png",
       "sizes": "96x96",
       "type": "image/png"
     }
@@ -47,6 +47,6 @@
   "orientation": "portrait",
   "display": "standalone",
   "start_url": ".",
-  "description": "My awesome Progressive Web App!",
+  "description": "An app for when you don't idea what to make",
   "background_color": "#ffffff"
 }
