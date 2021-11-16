@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IdeeBoxComponent } from './idee-box.component';
+import { IdeeTextButtonComponent } from './idee-text-button.component';
 
-describe('IdeeBoxComponent', () => {
-  let component: IdeeBoxComponent;
-  let fixture: ComponentFixture<IdeeBoxComponent>;
+describe('IdeeTextButtonComponent', () => {
+  let component: IdeeTextButtonComponent;
+  let fixture: ComponentFixture<IdeeTextButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IdeeBoxComponent ]
+      declarations: [ IdeeTextButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdeeBoxComponent);
+    fixture = TestBed.createComponent(IdeeTextButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,20 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IdeeBoxComponent } from './idee-box/idee-box.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IdeeMaterialDesignModule } from './idee-material-design/idee-material-design.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IdeeBoxComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    IdeeMaterialDesignModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
