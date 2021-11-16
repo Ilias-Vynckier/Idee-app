@@ -14,7 +14,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Idea App',
-      //favicon:'./src/idea.png',
+      favicon:'./src/idea.png',
     }),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/sw.js',
