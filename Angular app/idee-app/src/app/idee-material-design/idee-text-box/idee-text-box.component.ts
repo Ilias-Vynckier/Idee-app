@@ -15,7 +15,10 @@ export class IdeeTextBoxComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.subscription = this.data.currentMessage.subscribe(message => this.message = message)
+    this.subscription = this.data.currentMessage.subscribe(message => this.message = message);
+    fetch('https://api.kanye.rest/')
+        .then(response => response.json())
+        .then(data =>  this.data.changeMessage(data.quote));
   }
 
   ngOnDestroy() {
