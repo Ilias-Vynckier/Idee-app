@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
+import { DataService } from '../data-services/data.service';
 
 
 
@@ -32,6 +33,9 @@ import { MatRippleModule } from '@angular/material/core';
     IdeeToolbarComponent,
     IdeeTextBoxComponent,
     IdeeTextButtonComponent
+  ],
+  providers:[
+    DataService
   ]
 })
 export class IdeeMaterialDesignModule { }

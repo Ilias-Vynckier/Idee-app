@@ -9,12 +9,12 @@ import { DataService } from 'src/app/data-services/data.service';
 })
 export class IdeeTextButtonComponent implements OnInit {
 
-  subscription: Subscription;
+  subscription!: Subscription;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    //this.subscription = this.data.currentMessage.subscribe(message => this.message = message)
+    this.subscription = this.data.currentMessage.subscribe(message => message = message)
   }
 
   ngOnDestroy() {
@@ -24,7 +24,7 @@ export class IdeeTextButtonComponent implements OnInit {
   ideeFetch(){
     fetch('https://api.kanye.rest/')
         .then(response => response.json())
-        .then(data => this.subscription = this.data.currentMessage.subscribe(message => data = message));
+        .then(data =>  this.data.changeMessage(data.quote));
   }
 }
 

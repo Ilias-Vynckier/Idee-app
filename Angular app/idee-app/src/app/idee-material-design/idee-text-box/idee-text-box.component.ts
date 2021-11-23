@@ -9,8 +9,8 @@ import { DataService } from 'src/app/data-services/data.service';
 })
 export class IdeeTextBoxComponent implements OnInit {
 
-  message:string;
-  subscription: Subscription;
+  message!:string;
+  subscription!: Subscription;
 
   constructor(private data: DataService) { }
 
