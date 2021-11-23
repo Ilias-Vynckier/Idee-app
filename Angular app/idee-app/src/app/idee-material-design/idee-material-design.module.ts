@@ -10,15 +10,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { DataService } from '../data-services/data.service';
-
-
 
 @NgModule({
   declarations: [
     IdeeToolbarComponent,
     IdeeTextBoxComponent,
-    IdeeTextButtonComponent
+    IdeeTextButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -28,14 +27,14 @@ import { DataService } from '../data-services/data.service';
     MatIconModule,
     MatButtonModule,
     MatRippleModule,
+    MatGridListModule,
+    MatButtonModule,
   ],
-  exports:[
+  exports: [
     IdeeToolbarComponent,
     IdeeTextBoxComponent,
-    IdeeTextButtonComponent
+    IdeeTextButtonComponent,
   ],
-  providers:[
-    DataService
-  ]
+  providers: [DataService],
 })
-export class IdeeMaterialDesignModule { }
+export class IdeeMaterialDesignModule {}
