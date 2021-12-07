@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DataService } from '../data-services/data.service';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,6 @@ import { DataService } from '../data-services/data.service';
     IdeeTextBoxComponent,
     IdeeTextButtonComponent,
   ],
-  providers: [DataService],
+
 })
 export class IdeeMaterialDesignModule {}

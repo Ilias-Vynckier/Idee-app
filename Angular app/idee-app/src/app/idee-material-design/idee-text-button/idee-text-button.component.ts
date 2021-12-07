@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { DataService } from 'src/app/data-services/data.service';
+import { idee } from '../idee';
+
 
 @Component({
   selector: 'idee-text-button',
@@ -10,21 +12,27 @@ import { DataService } from 'src/app/data-services/data.service';
 export class IdeeTextButtonComponent implements OnInit {
 
   subscription!: Subscription;
+  idee$!: Observable<idee>;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.subscription = this.data.currentMessage.subscribe(message => message = message)
+    this.idee$ = this.data.changeMessage()
+
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  ideeFetch(){
+  /*ideeFetch(){
     fetch('https://api.kanye.rest/')
         .then(response => response.json())
         .then(data =>  this.data.changeMessage(data.quote));
+  }*/
+  ideeFetch( ){
+    this.idee$= this.data.changeMessage()
+   
   }
 }
 

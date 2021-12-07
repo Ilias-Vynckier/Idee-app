@@ -1,3 +1,4 @@
+import {  HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,7 +11,8 @@ import { IdeeMaterialDesignModule } from './idee-material-design/idee-material-d
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IdeeMaterialDesignModule
+    IdeeMaterialDesignModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
