@@ -9,13 +9,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClient } from '@angular/common/http';
 import { NewIdeeComponent } from './new-idee/new-idee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ideeRountingModule } from './idee-routing.module';
-
+import { BrowserModule } from '@angular/platform-browser';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ideeRountingModule } from './idee-routing.module';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
+    BrowserModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
@@ -34,6 +36,8 @@ import { ideeRountingModule } from './idee-routing.module';
     MatRippleModule,
     MatGridListModule,
     MatButtonModule,
+    MatNativeDateModule,
+    MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
     ideeRountingModule
