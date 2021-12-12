@@ -11,28 +11,26 @@ import { idee } from '../idee';
 })
 export class IdeeTextButtonComponent implements OnInit {
 
-  subscription!: Subscription;
-  idee$!: Observable<idee>;
+  ideeAPIsub = new Subscription();
 
+  @Output() ideeClick = new EventEmitter<idee>();
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.idee$ = this.data.changeMessage()
-
+    
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+
   }
 
-  /*ideeFetch(){
-    fetch('https://api.kanye.rest/')
-        .then(response => response.json())
-        .then(data =>  this.data.changeMessage(data.quote));
-  }*/
+
   ideeFetch( ){
-    this.idee$= this.data.changeMessage()
-   
+    // prevent browser reload on click.
+
+    this.ideeAPIsub.add(
+      this.data.changeMessage().subscribe()
+    );
   }
 }
 

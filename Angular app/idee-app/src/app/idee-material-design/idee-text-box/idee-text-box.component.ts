@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { idee } from '../idee';
 import { DataService } from 'src/app/data-services/data.service';
+import { ideeNA } from '../idee-na';
 
 @Component({
   selector: 'idee-text-box',
@@ -9,26 +10,16 @@ import { DataService } from 'src/app/data-services/data.service';
   styleUrls: ['./idee-text-box.component.css'],
 })
 export class IdeeTextBoxComponent implements OnInit {
-  message!: string;
-  subscription!: Subscription;
+  @Input() content: idee = new ideeNA();
+
   idee$: Observable<idee>;
-  content!: 'test';
 
-  constructor(private data: DataService) {
-    this.idee$ = this.data.changeMessage();
-    console.log(this.data.changeMessage());
+  constructor(private ideeApi: DataService) {
+    this.idee$ = this.ideeApi.changeMessage();
+    console.log("di",this.content);
   }
 
-  ngOnInit() {
-    this.subscription = this.idee$.subscribe()
-   /*fetch('https://api.kanye.rest/')
-        .then(response => response.json())
-        .then(data =>  this.data.changeMessage());*/
-    this.idee$ = this.data.changeMessage();
-    console.log(this.data.changeMessage());
-  }
+  ngOnInit() {}
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  ngOnDestroy() {}
 }
