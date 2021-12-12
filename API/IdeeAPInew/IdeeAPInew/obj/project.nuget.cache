@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OmE6/cKMEQ9SNEypQ0nsMdiy+15GiAlVgq9CyvIMJ7PY95/UcGtdbaDhjD8luNnIHwiTdZ3brZckBFymvQxCHw==",
+  "dgSpecHash": "YeZX/hN4ZrD6SNngU+pRbn38S704kqDXXAQ+1TWHr+sNk2Zd6PXLqnoK72qjg7I3YZ+6MxzlvVHfPS28/6AjCw==",
   "success": true,
   "projectFilePath": "D:\\medion\\Data\\school\\Bachlor Electronica-ICT\\Mobile IoT Apps 2\\Idee app\\API\\IdeeAPInew\\IdeeAPInew\\IdeeAPInew.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,11 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\6.0.0\\microsoft.extensions.diagnostics.healthchecks.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\6.0.0\\microsoft.extensions.diagnostics.healthchecks.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.entityframeworkcore\\6.0.0\\microsoft.extensions.diagnostics.healthchecks.entityframeworkcore.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\6.0.0\\microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",

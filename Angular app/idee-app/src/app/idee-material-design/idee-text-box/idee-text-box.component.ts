@@ -10,16 +10,17 @@ import { ideeNA } from '../idee-na';
   styleUrls: ['./idee-text-box.component.css'],
 })
 export class IdeeTextBoxComponent implements OnInit {
-  @Input() content: idee = new ideeNA();
+
 
   idee$: Observable<idee>;
 
   constructor(private ideeApi: DataService) {
     this.idee$ = this.ideeApi.changeMessage();
-    console.log("di",this.content);
+    console.log("di",this.ideeApi.changeMessage());
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnDestroy() {}
 }

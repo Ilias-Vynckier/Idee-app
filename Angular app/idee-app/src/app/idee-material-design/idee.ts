@@ -1,5 +1,5 @@
 export interface idee
 {
-  idee:string;
+  Idee:string;
   quote:string;
 }

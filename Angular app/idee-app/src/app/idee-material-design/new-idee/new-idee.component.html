@@ -1,1 +1,18 @@
 <h2>New</h2>
+
+<form [formGroup]="newForm" (ngSubmit)="create()">
+  <label class="form-field">
+    <span>IDEE</span>
+    <input formControlName="idee" />
+    <small
+      *ngIf="
+        newForm.get('idee')?.dirty && newForm.get('idee')?.hasError('required')
+      "
+      class="form-field-hint"
+      >Please insert an idee.</small
+    >
+  </label>
+  <div class="form-actions">
+    <button type="submit" [disabled]="newForm.invalid">Save</button>
+  </div>
+</form>

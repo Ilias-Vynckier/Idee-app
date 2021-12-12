@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import {Observable } from 'rxjs';
 import { idee } from '../idee-material-design/idee';
+import { ideeNA } from '../idee-material-design/idee-na';
 
 @Injectable({
   providedIn: 'root',
@@ -9,21 +10,22 @@ import { idee } from '../idee-material-design/idee';
 export class DataService {
   /*private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();*/
+  private endpoint = 'http://localhost:5169';
+  //private endpoint = 'https://api.kanye.rest';
 
-  private endpoint = 'https://localhost:7169';
-  //private endpoint = 'https://api.kanye.rest/';
+  constructor(private http:HttpClient) {
 
-  constructor(private http: HttpClient) {}
+  }
+
 
 
   changeMessage():Observable<idee> {
-    //return this.http.get<idee>(`${this.endpoint}/ideeitems`);
-    console.log("dink")
-    return this.http.get<idee>(`${this.endpoint}`);
+    return this.http.get<idee>(`${this.endpoint}/ideeitems`);
   }
 
-  create(idee: idee): Observable<idee> {
-    return this.http.post<idee>(`${this.endpoint}/books/`, idee);
+  create(Idee: idee): Observable<idee> {
+    console.log(Idee);
+    return this.http.post<idee>(`${this.endpoint}/ideeitems`, Idee);
   }
 }
 

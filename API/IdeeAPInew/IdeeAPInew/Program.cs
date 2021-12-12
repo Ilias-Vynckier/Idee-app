@@ -1,17 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http.Json;
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddDbContext<IdeeDb>(opt => opt.UseInMemoryDatabase("TodoList"));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddDatabaseDeveloperPageExceptionFilter(); ;
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:4200");
+                          builder.WithOrigins("http://localhost:4200")
+                           .AllowAnyHeader();
                       });
 });
 var app = builder.Build();
@@ -134,16 +133,19 @@ var idea = new[]
   "App Editor App"
 };
 
-app.MapGet("/ideeitems", async (IdeeDb db) =>
+/*app.MapGet("/ideeitems", async (IdeeDb db) =>
 {
     var idee = idea[Random.Shared.Next(idea.Length)];
     return idee;
 })
-.WithName("GetWeatherForecast");
+.WithName("GetWeatherForecast");*/
+
+app.MapGet("/ideeitems", async (IdeeDb db) =>
+    await db.Ideen.ToListAsync());
 
 
-app.MapGet("/ideeitems/complete", async (IdeeDb db) =>
-    await db.Ideen.Where(t => t.IsComplete).ToListAsync());
+/*app.MapGet("/ideeitems/complete", async (IdeeDb db) =>
+    await db.Ideen.Where(t => t.IsComplete).ToListAsync());*/
 
 app.MapGet("/ideeitems/{id}", async (int id, IdeeDb db) =>
     await db.Ideen.FindAsync(id)
@@ -165,8 +167,8 @@ app.MapPut("/ideeitems/{id}", async (int id, idee inputTodo, IdeeDb db) =>
 
     if (idee is null) return Results.NotFound();
 
-    idee.Name = inputTodo.Name;
-    idee.IsComplete = inputTodo.IsComplete;
+    idee.Idee = inputTodo.Idee;
+   
 
     await db.SaveChangesAsync();
 
@@ -190,8 +192,7 @@ app.Run();
 class idee
 {
     public int Id { get; set; }
-    public string? Name { get; set; }
-    public bool IsComplete { get; set; }
+    public string? Idee { get; set; }
 }
 
 class IdeeDb : DbContext

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/data-services/data.service';
@@ -14,10 +14,7 @@ export class NewIdeeComponent implements OnDestroy {
 
   constructor(private form: FormBuilder, private ideeApi: DataService) {
     this.newForm = this.form.group({
-      isbn: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      author: ['', []],
-      abstract: ['', []]
+      idee: ['', [Validators.required]],
     });
   }
 
@@ -29,6 +26,8 @@ export class NewIdeeComponent implements OnDestroy {
     if (this.newForm.invalid) {
       return;
     }
+
+    const test=JSON.stringify(this.newForm.value)
 
     this.bookApiSubscription.add(
       this.ideeApi.create(this.newForm.value).subscribe()

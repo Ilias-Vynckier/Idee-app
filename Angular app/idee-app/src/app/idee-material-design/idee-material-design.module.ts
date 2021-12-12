@@ -11,12 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClient } from '@angular/common/http';
 import { NewIdeeComponent } from './new-idee/new-idee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ideeRountingModule } from './idee-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatButtonModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ideeRountingModule
   ],
   exports: [

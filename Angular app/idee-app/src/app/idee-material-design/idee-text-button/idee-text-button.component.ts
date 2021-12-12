@@ -1,7 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { DataService } from 'src/app/data-services/data.service';
 import { idee } from '../idee';
+import { ideeNA } from '../idee-na';
 
 
 @Component({
@@ -12,12 +13,12 @@ import { idee } from '../idee';
 export class IdeeTextButtonComponent implements OnInit {
 
   ideeAPIsub = new Subscription();
-
+  @Input() content: idee = new ideeNA();
   @Output() ideeClick = new EventEmitter<idee>();
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    
+
   }
 
   ngOnDestroy() {
@@ -25,12 +26,15 @@ export class IdeeTextButtonComponent implements OnInit {
   }
 
 
-  ideeFetch( ){
+  ideeFetch(click:MouseEvent ){
     // prevent browser reload on click.
+    click.preventDefault();
 
+    console.log(this.data.changeMessage());
     this.ideeAPIsub.add(
       this.data.changeMessage().subscribe()
     );
+   //this.ideeClick.emit(this.content);
   }
 }
 
