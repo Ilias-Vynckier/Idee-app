@@ -13,14 +13,17 @@ export class DataService {
   private endpoint = 'http://localhost:5169';
   //private endpoint = 'https://api.kanye.rest';
 
-  constructor(private http:HttpClient) {
-
-  }
-
-
+  constructor(private http:HttpClient) {}
 
   changeMessage():Observable<idee> {
-    return this.http.get<idee>(`${this.endpoint}/ideeitems`);
+    //return this.http.get<idee>(`${this.endpoint}/ideeitems`);
+    var test: Observable<any> = this.http.get(`${this.endpoint}/ideeitems`);
+    test.subscribe({
+      next: (data) => console.log(data),
+      error: () => ({}) /** Error handling callback */,
+      complete: () => ({}) /** Done with the observable */,
+    });
+    return test;
   }
 
   create(Idee: idee): Observable<idee> {
