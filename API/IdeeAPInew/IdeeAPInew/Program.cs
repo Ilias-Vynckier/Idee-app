@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
@@ -140,18 +142,35 @@ var idea = new[]
 })
 .WithName("GetWeatherForecast");*/
 
-app.MapGet("/ideeitems", async (IdeeDb db) =>
-    await db.Ideen.ToListAsync());
 
+
+
+MongoClient dbClient = new MongoClient("mongodb+srv://saili:saili@cluster0.6ujtg.azure.mongodb.net/<dbname>?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+
+
+var database = dbClient.GetDatabase("IdeeDB");
+var collection = database.GetCollection<BsonDocument>("Idea");
+var firstDocument = collection.Find(new BsonDocument()).SingleOrDefault();
+Console.WriteLine(firstDocument.ToString());
+
+/*var rnd = Random.Shared.Next(idea.Length);
+var sgs = collection.Find(new BsonDocument()).SingleOrDefaultAsync(rnd);*/
+
+
+app.MapGet("/ideeitems", async (IdeeDb db) =>
+{
+    return collection.Find(new BsonDocument()).SingleOrDefault().ToJson();
+    
+});
 
 /*app.MapGet("/ideeitems/complete", async (IdeeDb db) =>
     await db.Ideen.Where(t => t.IsComplete).ToListAsync());*/
 
 app.MapGet("/ideeitems/{id}", async (int id, IdeeDb db) =>
-    await db.Ideen.FindAsync(id)
-        is idee idee
-            ? Results.Ok(idee)
-            : Results.NotFound());
+   await db.Ideen.FindAsync(id)
+       is idee idee
+           ? Results.Ok(idee)
+           : Results.NotFound());
 
 app.MapPost("/ideeitems", async (idee idee, IdeeDb db) =>
 {
@@ -168,7 +187,7 @@ app.MapPut("/ideeitems/{id}", async (int id, idee inputTodo, IdeeDb db) =>
     if (idee is null) return Results.NotFound();
 
     idee.Idee = inputTodo.Idee;
-   
+
 
     await db.SaveChangesAsync();
 

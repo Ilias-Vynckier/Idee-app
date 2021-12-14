@@ -10,7 +10,8 @@ import { ideeNA } from '../idee-material-design/idee-na';
 export class DataService {
   /*private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();*/
-  private endpoint = 'http://localhost:5169';
+  private endpoint = 'https://localhost:7169';
+  //private endpoint = 'https://data.mongodb-api.com/app/data-lavpm/endpoint/data/beta';
   //private endpoint = 'https://api.kanye.rest';
 
   constructor(private http:HttpClient) {}
