@@ -17,13 +17,14 @@ export class DataService {
 
   changeMessage():Observable<idee> {
     //return this.http.get<idee>(`${this.endpoint}/ideeitems`);
-    var test: Observable<any> = this.http.get(`${this.endpoint}/ideeitems`);
+    /*var test: Observable<any> = this.http.get(`${this.endpoint}/ideeitems`);
     test.subscribe({
       next: (data) => console.log(data),
-      error: () => ({}) /** Error handling callback */,
-      complete: () => ({}) /** Done with the observable */,
-    });
-    return test;
+      error: () => ({}) /** Error handling callback *///,
+      //complete: () => ({}) /** Done with the observable ,
+    //});
+    /*return test;*/
+    return this.http.get<idee>(`${this.endpoint}/ideeitems`);
   }
 
   create(Idee: idee): Observable<idee> {
