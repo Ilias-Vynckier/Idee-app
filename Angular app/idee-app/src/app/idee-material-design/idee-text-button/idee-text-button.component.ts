@@ -4,38 +4,29 @@ import { DataService } from 'src/app/data-services/data.service';
 import { idee } from '../idee';
 import { ideeNA } from '../idee-na';
 
-
 @Component({
   selector: 'idee-text-button',
   templateUrl: './idee-text-button.component.html',
-  styleUrls: ['./idee-text-button.component.css']
+  styleUrls: ['./idee-text-button.component.css'],
 })
 export class IdeeTextButtonComponent implements OnInit {
-
   ideeAPIsub = new Subscription();
   @Input() content: idee = new ideeNA();
   @Output() ideeClick = new EventEmitter<idee>();
-  constructor(private data: DataService) { }
+  constructor(private data: DataService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
+  ngOnDestroy() {}
 
-  ngOnDestroy() {
-
-  }
-
-
-  ideeFetch(click:MouseEvent ){
+  ideeFetch(click: MouseEvent) {
     // prevent browser reload on click.
     click.preventDefault();
 
-    console.log(this.data.changeMessage());
-    this.ideeAPIsub.add(
+    this.data.changeMessage();
+    /*this.ideeAPIsub.add(
       this.data.changeMessage().subscribe()
-    );
-   //this.ideeClick.emit(this.content);
+    );*/
+    this.ideeClick.emit(this.content);
   }
 }
-
-

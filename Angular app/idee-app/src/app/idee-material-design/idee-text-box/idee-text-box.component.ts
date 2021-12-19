@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 import { idee } from '../idee';
 import { DataService } from 'src/app/data-services/data.service';
 import { ideeNA } from '../idee-na';
@@ -10,16 +10,14 @@ import { ideeNA } from '../idee-na';
   styleUrls: ['./idee-text-box.component.css'],
 })
 export class IdeeTextBoxComponent implements OnInit {
-
-
   idee$: Observable<idee>;
 
   constructor(private ideeApi: DataService) {
     this.idee$ = this.ideeApi.changeMessage();
-    console.log("di",this.ideeApi.changeMessage());
   }
 
   ngOnInit() {
+    this.ideeApi.currentMessage.subscribe(x=>this.idee$=x)
   }
 
   ngOnDestroy() {}
