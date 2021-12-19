@@ -12,7 +12,7 @@ import { ideeNA } from '../idee-na';
 export class IdeeTextButtonComponent implements OnInit {
   ideeAPIsub = new Subscription();
   @Input() content: idee = new ideeNA();
-  @Output() ideeClick = new EventEmitter<idee>();
+
   constructor(private data: DataService) {}
 
   ngOnInit() {}
@@ -20,13 +20,9 @@ export class IdeeTextButtonComponent implements OnInit {
   ngOnDestroy() {}
 
   ideeFetch(click: MouseEvent) {
-    // prevent browser reload on click.
-    click.preventDefault();
+
 
     this.data.changeMessage();
-    /*this.ideeAPIsub.add(
-      this.data.changeMessage().subscribe()
-    );*/
-    this.ideeClick.emit(this.content);
+
   }
 }

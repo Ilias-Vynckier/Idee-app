@@ -27,7 +27,6 @@ export class DataService {
     //});
     /*return test;*/
     //return this.http.get<idee>(`${this.endpoint}/ideeitems`);
-    console.log('dink');
 
     this.messageSource.next(this.http.get<idee>(`${this.endpoint}`));
     return this.http.get<idee>(`${this.endpoint}`);

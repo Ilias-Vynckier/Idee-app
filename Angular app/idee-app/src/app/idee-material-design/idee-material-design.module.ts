@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     BrowserModule,
     MatToolbarModule,
+    MatToolbarModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,

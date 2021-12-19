@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { idee } from '../idee';
 import { DataService } from 'src/app/data-services/data.service';
-import { ideeNA } from '../idee-na';
 
 @Component({
   selector: 'idee-text-box',
@@ -17,7 +16,7 @@ export class IdeeTextBoxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ideeApi.currentMessage.subscribe(x=>this.idee$=x)
+    this.ideeApi.currentMessage.subscribe((x) => (this.idee$ = x));
   }
 
   ngOnDestroy() {}
