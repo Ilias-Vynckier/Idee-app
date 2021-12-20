@@ -10,8 +10,8 @@ import { ideeNA } from '../idee-na';
   styleUrls: ['./idee-text-button.component.css'],
 })
 export class IdeeTextButtonComponent implements OnInit {
-  ideeAPIsub = new Subscription();
-  @Input() content: idee = new ideeNA();
+  /*ideeAPIsub = new Subscription();
+  @Input() content: idee = new ideeNA();*/
 
   constructor(private data: DataService) {}
 
@@ -20,9 +20,6 @@ export class IdeeTextButtonComponent implements OnInit {
   ngOnDestroy() {}
 
   ideeFetch(click: MouseEvent) {
-
-
     this.data.changeMessage();
-
   }
 }

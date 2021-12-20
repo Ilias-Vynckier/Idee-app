@@ -1,23 +1,20 @@
-import { HttpClientModule } from '@angular/common/http';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IdeeMaterialDesignModule } from './idee-material-design/idee-material-design.module';
 
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IdeeCardComponent } from './idee-material-design/idee-card/idee-card.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, IdeeCardComponent],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     IdeeMaterialDesignModule,
+    RouterTestingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

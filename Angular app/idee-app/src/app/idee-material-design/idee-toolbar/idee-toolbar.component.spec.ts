@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 
 import { IdeeToolbarComponent } from './idee-toolbar.component';
 
@@ -8,7 +9,7 @@ describe('IdeeToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IdeeToolbarComponent ]
+      declarations: [ IdeeToolbarComponent ],
     })
     .compileComponents();
   });

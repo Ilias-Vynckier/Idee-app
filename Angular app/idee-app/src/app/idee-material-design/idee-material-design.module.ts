@@ -15,9 +15,10 @@ import { NewIdeeComponent } from './new-idee/new-idee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ideeRountingModule } from './idee-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { IdeeCardComponent } from './idee-card/idee-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     IdeeTextBoxComponent,
     IdeeTextButtonComponent,
     NewIdeeComponent,
+    IdeeCardComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ideeRountingModule
+    ideeRountingModule,
   ],
   exports: [
     IdeeToolbarComponent,

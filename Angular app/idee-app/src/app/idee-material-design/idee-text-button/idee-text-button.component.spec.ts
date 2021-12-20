@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IdeeTextButtonComponent } from './idee-text-button.component';
@@ -8,6 +9,7 @@ describe('IdeeTextButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[HttpClientModule],
       declarations: [ IdeeTextButtonComponent ]
     })
     .compileComponents();
@@ -22,4 +24,5 @@ describe('IdeeTextButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

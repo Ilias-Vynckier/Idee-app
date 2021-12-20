@@ -1,9 +1,9 @@
+
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Input, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { idee } from '../idee-material-design/idee';
-import { ideeNA } from '../idee-material-design/idee-na';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,7 @@ export class DataService {
   private endpoint = 'https://api.kanye.rest';
 
   constructor(private http: HttpClient) {}
+
 
   changeMessage(): Observable<idee> {
     //return this.http.get<idee>(`${this.endpoint}/ideeitems`);
