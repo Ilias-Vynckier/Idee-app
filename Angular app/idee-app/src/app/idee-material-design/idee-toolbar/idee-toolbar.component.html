@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>Idee app</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"  >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleMenu()" >
       <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
     </button>
   </mat-toolbar-row>

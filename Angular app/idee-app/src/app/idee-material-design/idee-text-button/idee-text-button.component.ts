@@ -20,6 +20,6 @@ export class IdeeTextButtonComponent implements OnInit {
   ngOnDestroy() {}
 
   ideeFetch(click: MouseEvent) {
-    this.data.changeMessage();
+    this.data.loadAll();
   }
 }

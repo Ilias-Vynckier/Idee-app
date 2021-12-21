@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
+import { MenuActions } from 'src/app/state/menu.actions';
 
 @Component({
   selector: 'idee-toolbar',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdeeToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.store.subscribe((state) => {
+
+      console.log(state);
+    });
   }
 
+  toggleMenu(){
+    this.store.dispatch(MenuActions.showMenu())
+  }
 }

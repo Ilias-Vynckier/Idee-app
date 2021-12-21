@@ -1,9 +1,8 @@
-<h2>New</h2>
-
 <form [formGroup]="newForm" (ngSubmit)="create()">
   <label class="form-field">
-    <span>IDEE</span>
-    <input formControlName="idee" />
+    <mat-form-field>
+    <mat-label>IDEE</mat-label>
+    <input formControlName="idee" matInput/>
     <small
       *ngIf="
         newForm.get('idee')?.dirty && newForm.get('idee')?.hasError('required')
@@ -11,8 +10,9 @@
       class="form-field-hint"
       >Please insert an idee.</small
     >
+  </mat-form-field>
   </label>
   <div class="form-actions">
-    <button type="submit" [disabled]="newForm.invalid">Save</button>
+    <button  mat-button color="primary" class="example-ripple-container mat-elevation-z4" type="submit" [disabled]="newForm.invalid">Save</button>
   </div>
 </form>

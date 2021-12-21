@@ -8,6 +8,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { menuReducer } from './state/menu.reducer';
+import { ideeReducer } from './state/idee.reducer';
+import { IdeeEffects } from './state/idee.effect';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
+    StoreModule.forRoot({ menu: menuReducer ,  idee: ideeReducer },{}),
+    EffectsModule.forRoot([IdeeEffects]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],

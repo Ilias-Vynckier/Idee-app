@@ -17,6 +17,7 @@ import { ideeRountingModule } from './idee-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { IdeeCardComponent } from './idee-card/idee-card.component';
 
@@ -39,10 +40,10 @@ import { IdeeCardComponent } from './idee-card/idee-card.component';
     MatButtonModule,
     MatRippleModule,
     MatGridListModule,
-    MatButtonModule,
     MatNativeDateModule,
     MatMenuModule,
     MatFormFieldModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/data-services/data.service';
 
+
 @Component({
   selector: 'new-idee',
   templateUrl: './new-idee.component.html',
