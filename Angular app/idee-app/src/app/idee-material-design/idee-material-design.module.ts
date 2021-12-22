@@ -20,6 +20,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { IdeeCardComponent } from './idee-card/idee-card.component';
+import { StoreModule } from '@ngrx/store';
+import { menuReducer } from '../state/menu.reducer';
+import { ideeReducer } from '../state/idee.reducer';
+import { IdeeEffects } from '../state/idee.effect';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,8 @@ import { IdeeCardComponent } from './idee-card/idee-card.component';
     ReactiveFormsModule,
     HttpClientModule,
     ideeRountingModule,
+    StoreModule.forRoot({ menu: menuReducer ,  idee: ideeReducer },{}),
+    EffectsModule.forRoot([IdeeEffects]),
   ],
   exports: [
     IdeeToolbarComponent,

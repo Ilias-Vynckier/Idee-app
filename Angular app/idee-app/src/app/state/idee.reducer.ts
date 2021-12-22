@@ -1,21 +1,22 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadIdee, loadIdeeFail, loadIdeeSucces } from './idee.actions';
+import { loadIdees, loadIdeeFail, loadIdeeSucces } from './idee.actions';
 import { IdeeState } from './idee.state';
 
 export const initialIdeeState: IdeeState = {
   error: null,
   loading: false,
-  idees:[],
+  idees:{quote:"test",idee:"test"}, // aangepast 
 };
 
 export const ideeReducer = createReducer(
   initialIdeeState,
-  on(loadIdee, (state) => ({ ...state, loading: true })),
+  on(loadIdees, (state) => ({ ...state, loading: true })),
   on(loadIdeeFail, (state, { error }) => ({ ...state, error: error })),
-  on(loadIdeeSucces, (state, { resorts }) => ({
+  on(loadIdeeSucces, (state, { idees }) => ({
     ...state,
     error: null,
     loading: false,
-    Idee: resorts,
+    idees: idees,
   }))
 );
+

@@ -42,8 +42,7 @@ export class DataService {
     return this.http.post<idee>(`${this.endpoint}/ideeitems`, Idee);
   }
 
-  loadAll(): Observable<Array<Idee>> {
- console.log(fetch(`${BASE_URL}`).then((response) =>  response.json()))
+  loadAll(): Observable<Idee> {
     return from(
       fetch(`${BASE_URL}`).then((response) =>  response.json())
     );

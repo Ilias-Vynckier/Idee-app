@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { IdeeState } from './idee.state';
 
-export const selectIdee = createFeatureSelector<IdeeState>('idee');
+export const selectIdee= createFeatureSelector<IdeeState>('idee')
 
 export const selectIdeeIdees = createSelector(
   selectIdee,

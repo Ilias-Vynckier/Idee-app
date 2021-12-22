@@ -5,11 +5,9 @@ import { DataService } from 'src/app/data-services/data.service';
 import { ideeNA } from '../idee-na';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
-import { selectIdee, selectIdeeIdees } from 'src/app/state/idee.selector';
-import { IdeeActions } from 'src/app/state/idee.actions';
-import { initialIdeeState } from 'src/app/state/idee.reducer';
-import { selectMenu } from 'src/app/state/menu.selector';
-import { initialMenuState } from 'src/app/state/menu.reducer';
+import {  selectIdeeIdees } from 'src/app/state/idee.selector';
+import { ideeActions } from 'src/app/state/idee.actions';
+
 
 @Component({
   selector: 'idee-text-box',
@@ -20,8 +18,7 @@ export class IdeeTextBoxComponent implements OnInit {
   @Input() content: ideeNA = new ideeNA();
 
 
-  idee$ = this.store.select(selectIdeeIdees);
-
+  idees$ = this.store.select(selectIdeeIdees);
 
   //idee$: Observable<idee>;
 
@@ -32,7 +29,7 @@ export class IdeeTextBoxComponent implements OnInit {
       console.log(state);
     });
 
-    this.store.dispatch(IdeeActions.loadIdee());
+    this.store.dispatch(ideeActions.loadIdees());
   }
 
   /* constructor(private ideeApi: DataService) {

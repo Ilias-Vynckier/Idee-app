@@ -1,24 +1,20 @@
-import { createAction, props } from "@ngrx/store";
-import { Idee } from "./idee.model";
+import { createAction, props } from '@ngrx/store';
+import { Idee } from './idee.model';
 
+export const loadIdees = createAction('[idee] Load');
 
-export const loadIdee=createAction(
-  '[idee] Load',
-);
-
-export const loadIdeeFail=createAction(
+export const loadIdeeFail = createAction(
   '[idee] Load Fail',
-  props<{error:Error}>()
+  props<{ error: Error }>()
 );
 
-export const loadIdeeSucces=createAction(
+export const loadIdeeSucces = createAction(
   '[idee] Load Succes',
-  props<{resorts:Idee[]}>()
+  props<{ idees: Idee}>()
 );
 
-
-export const IdeeActions={
- loadIdee:loadIdee,
- loadIdeeFail:loadIdeeFail,
- loadIdeeSucces:loadIdeeSucces,
-}
+export const ideeActions = {
+  loadIdees: loadIdees,
+  loadIdeeFail: loadIdeeFail,
+  loadIdeeSucces: loadIdeeSucces,
+};

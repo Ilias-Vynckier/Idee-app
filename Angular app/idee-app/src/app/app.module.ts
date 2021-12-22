@@ -28,9 +28,8 @@ import { EffectsModule } from '@ngrx/effects';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
-    StoreModule.forRoot({ menu: menuReducer ,  idee: ideeReducer },{}),
-    EffectsModule.forRoot([IdeeEffects]),
-    StoreModule.forRoot({}, {}),
+    /*StoreModule.forRoot({ menu: menuReducer ,  idee: ideeReducer },{}),
+    EffectsModule.forRoot([IdeeEffects]),*/
   ],
   providers: [],
   bootstrap: [AppComponent],

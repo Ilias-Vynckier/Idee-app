@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { DataService } from 'src/app/data-services/data.service';
+import { AppState } from 'src/app/state/app.state';
+import { ideeActions } from 'src/app/state/idee.actions';
 import { idee } from '../idee';
 import { ideeNA } from '../idee-na';
 
@@ -13,13 +16,14 @@ export class IdeeTextButtonComponent implements OnInit {
   /*ideeAPIsub = new Subscription();
   @Input() content: idee = new ideeNA();*/
 
-  constructor(private data: DataService) {}
+  constructor(private store: Store<AppState>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnDestroy() {}
 
   ideeFetch(click: MouseEvent) {
-    this.data.loadAll();
+    this.store.dispatch(ideeActions.loadIdees());
   }
 }
