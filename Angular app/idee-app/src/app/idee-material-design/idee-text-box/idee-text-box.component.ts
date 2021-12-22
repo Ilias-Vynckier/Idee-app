@@ -18,6 +18,7 @@ export class IdeeTextBoxComponent implements OnInit {
   @Input() content: ideeNA = new ideeNA();
 
 
+
   idees$ = this.store.select(selectIdeeIdees);
 
   //idee$: Observable<idee>;
@@ -30,6 +31,7 @@ export class IdeeTextBoxComponent implements OnInit {
     });
 
     this.store.dispatch(ideeActions.loadIdees());
+
   }
 
   /* constructor(private ideeApi: DataService) {

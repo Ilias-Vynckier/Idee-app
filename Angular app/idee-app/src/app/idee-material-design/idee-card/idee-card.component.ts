@@ -10,7 +10,4 @@ import { selectIdeeIdees } from 'src/app/state/idee.selector';
 })
 export class IdeeCardComponent implements OnInit {
   ngOnInit(): void {}
-
-  idee$ = this.store.select(selectIdeeIdees);
-  constructor(private store: Store<AppState>) {}
 }
