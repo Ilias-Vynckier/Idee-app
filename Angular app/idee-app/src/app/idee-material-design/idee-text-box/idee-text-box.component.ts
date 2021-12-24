@@ -5,9 +5,8 @@ import { DataService } from 'src/app/data-services/data.service';
 import { ideeNA } from '../idee-na';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
-import {  selectIdeeIdees } from 'src/app/state/idee.selector';
+import { selectIdeeIdees } from 'src/app/state/idee.selector';
 import { ideeActions } from 'src/app/state/idee.actions';
-
 
 @Component({
   selector: 'idee-text-box',
@@ -17,7 +16,6 @@ import { ideeActions } from 'src/app/state/idee.actions';
 export class IdeeTextBoxComponent implements OnInit {
   @Input() content: ideeNA = new ideeNA();
 
-
   idees$ = this.store.select(selectIdeeIdees);
 
   //idee$: Observable<idee>;
@@ -25,7 +23,6 @@ export class IdeeTextBoxComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     this.store.subscribe((state) => {
-
       console.log(state);
     });
 

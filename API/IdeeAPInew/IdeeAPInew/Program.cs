@@ -142,10 +142,18 @@ var idea = new[]
 })
 .WithName("GetWeatherForecast");*/
 
+app.MapGet("/ideeitems", async (IdeeDb db) =>
+{
+    Random rand = new Random();
+
+    int idee = rand.Next(1, db.Ideen.Count);
+
+    await db.Ideen.Skip(idee).Take(1).First();
+});
+    //await db.Ideen.ToListAsync());
 
 
-
-MongoClient dbClient = new MongoClient("mongodb+srv://saili:saili@cluster0.6ujtg.azure.mongodb.net/<dbname>?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
+/*MongoClient dbClient = new MongoClient("mongodb+srv://saili:saili@cluster0.6ujtg.azure.mongodb.net/<dbname>?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true");
 
 
 var database = dbClient.GetDatabase("IdeeDB");
@@ -157,11 +165,11 @@ Console.WriteLine(firstDocument.ToString());
 var sgs = collection.Find(new BsonDocument()).SingleOrDefaultAsync(rnd);*/
 
 
-app.MapGet("/ideeitems", async (IdeeDb db) =>
+/*app.MapGet("/ideeitems", async (IdeeDb db) =>
 {
     return collection.Find(new BsonDocument()).SingleOrDefault().ToJson();
     
-});
+});*/
 
 /*app.MapGet("/ideeitems/complete", async (IdeeDb db) =>
     await db.Ideen.Where(t => t.IsComplete).ToListAsync());*/
