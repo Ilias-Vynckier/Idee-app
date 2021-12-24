@@ -8,7 +8,7 @@ export const initialMenuState: MenuState={
 
 export const menuReducer = createReducer(
   initialMenuState,
-  on(showMenu,(state)=>({...state,hidden:true})),
-  on(hideMenu,(state)=>({...state,hidden:false})),
+  on(showMenu,(state)=>({...state,hidden:false})),
+  on(hideMenu,(state)=>({...state,hidden:true})),
   on(toggleMenu,(state)=>({...state,hidden:true}))
 )

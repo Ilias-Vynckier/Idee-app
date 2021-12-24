@@ -5,7 +5,7 @@ import { IdeeState } from './idee.state';
 export const initialIdeeState: IdeeState = {
   error: null,
   loading: false,
-  idees:{quote:"test",idee:"test"}, // aangepast 
+  idees:{quote:"test",idee:"test"}, // aangepast
 };
 
 export const ideeReducer = createReducer(

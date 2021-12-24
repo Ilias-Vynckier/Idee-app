@@ -17,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({ menu: menuReducer, idee: ideeReducer }, {}),
+    //StoreModule.forRoot({ menu: menuReducer, idee: ideeReducer }, {}),
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule],

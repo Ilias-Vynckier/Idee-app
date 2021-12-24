@@ -21,6 +21,6 @@ export class IdeeToolbarComponent implements OnInit {
   }
 
   toggleMenu(){
-    this.store.dispatch(MenuActions.toggleMenu())
+    this.store.dispatch(MenuActions.showMenu())
   }
 }

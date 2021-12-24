@@ -28,6 +28,12 @@ import { EffectsModule } from '@ngrx/effects';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     /*StoreModule.forRoot({ menu: menuReducer ,  idee: ideeReducer },{}),
     EffectsModule.forRoot([IdeeEffects]),*/
   ],
